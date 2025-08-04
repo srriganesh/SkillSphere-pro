@@ -1,7 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // ✅
 
 export default function HeroSection() {
+  const navigate = useNavigate(); // ✅
+
+  const handleBrowseCourses = () => {
+    navigate("/courses"); // ✅
+  };
+
   return (
     <section className="min-h-[90vh] bg-white flex flex-col items-center justify-center text-center px-6 md:px-20 relative overflow-hidden">
       <motion.h1
@@ -32,7 +39,10 @@ export default function HeroSection() {
         <button className="bg-indigo-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-indigo-500 transition duration-300">
           Get Started
         </button>
-        <button className="bg-gray-100 text-gray-800 px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-300">
+        <button
+          onClick={handleBrowseCourses}
+          className="bg-gray-100 text-gray-800 px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-300"
+        >
           Browse Courses
         </button>
       </motion.div>
